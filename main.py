@@ -34,6 +34,12 @@ class Pet:
         self.hunger = min(self.hunger + 10, 100)
         print(f"{self.name} descansou.")
 
+    def actives(self):
+        actives = None
+
+        if self.play is True:
+            self.actives.append()
+
     def status(self):
         print(f"\n{self.name}'s status:")
         print(f"Fome: {self.hunger}")
