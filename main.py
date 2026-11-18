@@ -1,3 +1,15 @@
+food_list = [(1, 'Suco', 10),
+             (2, 'Bolo', 20),
+             (3, 'Hamburger', 40),
+             (4, 'Milkshake', 20),
+             (5, 'Salada', 40)]
+
+actives_list = [
+    (1, 'Desenhar', 10),
+    (2, 'Jogar', 30),
+    (3, 'Estudar', -10),
+    (4, 'Conversar', 30)]
+
 class Pet:
     def __init__(self, name):
         self.name = name
