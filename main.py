@@ -1,3 +1,10 @@
+skills_list = [
+    (1, 'Inteligência', 0),
+    (2, 'Ginástica', 0),
+    (3, 'Cozinha', 0),
+    (4, 'Social', 0)
+]
+
 food_list = [
     (1, 'Suco', 10),
     (2, 'Bolo', 20),
