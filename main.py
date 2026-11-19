@@ -24,9 +24,9 @@ actives_list = [
 class Pet:
     def __init__(self, name):
         self.name = name
-        self.hunger = 50
-        self.energy = 50
-        self.happiness = 50
+        self.hunger = 0
+        self.energy = 90
+        self.happiness = 40
 
     def feed(self):
         f = self._choice(food_list, f"O que {self.name} irá comer?")
@@ -87,6 +87,14 @@ class Pet:
         print(f"Energia: {self.energy}")
         print(f"Diversão: {self.happiness}")
 
+    def status_skills(self):
+        s = self._choice(skills_list, '')
+        _, skill_name, level_d = s
+
+        print(f"\n{self.name}'s status habilidades:")
+        print(" HABILIDADE | NIVEL ")
+        print(f"{skill_name} | {level_d}")
+
     def time_passes(self):
         self.hunger = min(self.hunger + 5, 100)
         self.energy = max(self.energy - 5, 0)
@@ -108,7 +116,8 @@ class Pet:
             print("2. Diversão")
             print("3. Dormir")
             print("4. Ver Status")
-            print("5. Sair")
+            print("5. Ver Status Habilidades")
+            print("6. Sair")
 
             choices = input("> ")
 
@@ -121,6 +130,8 @@ class Pet:
             elif choices == "4":
                 pet.status()
             elif choices == "5":
+                pet.status_skills()
+            elif choices == "6":
                 print("Até logo!!")
                 break
             else:
