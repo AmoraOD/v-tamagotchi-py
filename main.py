@@ -30,29 +30,29 @@ class Pet:
         _, food_name, value = f
         self.hunger = max(self.hunger - value, 0)
         print(f"\n{self.name} comeu {food_name}")
-        print(f"Menos {value} de fome.")
+        print(f"Fome -{value}")
 
     def play(self):
-        item = self._choice(actives_list, "Atividades:")
+        item = self._choice(actives_list, "Atividades -")
         if item is None:
             return
 
         _, active_name, happiness_d, energy_d = item
 
         if energy_d < 0 and self.energy < abs(energy_d):
-            print(f"{self.name} está muito cansado para {active_name.lower()}!")
+            print(f"\n{self.name} está muito cansado para {active_name.lower()}!")
             return
 
         self.happiness = max(0, min(self.happiness + happiness_d, 100))
         self.energy   = max(0, min(self.energy + energy_d, 100))
 
-        print(f"{self.name} fez '{active_name}'! " 
-              f"(Diversão {happiness_d:+}, Energia {energy_d:+})")
+        print(f"{self.name} começou '{active_name}'! " 
+              f"\n(Diversão {happiness_d:+}, Energia {energy_d:+})")
 
     def sleep(self):
         self.energy = min(self.energy + 30, 100)
         self.hunger = min(self.hunger + 10, 100)
-        print(f"{self.name} descansou.")
+        print(f"\n{self.name} descansou.")
 
     def _choice(self, items, title):
         print(f"\n{title}")
@@ -71,7 +71,7 @@ class Pet:
             if item[0] == choice:
                 return item
 
-        print("Opção invalida!")
+        print("\nOpção invalida!")
         return None
 
     def status(self):
@@ -117,7 +117,7 @@ class Pet:
                 print("Até logo!!")
                 break
             else:
-                print("Opção invalida, digite novamente")
+                print("\nOpção invalida, digite novamente")
                 continue
 
             pet.time_passes()
